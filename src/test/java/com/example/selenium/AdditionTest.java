@@ -18,7 +18,7 @@ public class AdditionTest {
     public void setUp() {
         // Point to EdgeDriver location
         System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
-        driver = new EdgeDriver();
+        driver = new EdgeDriver(options);
     }
 
     @AfterEach
