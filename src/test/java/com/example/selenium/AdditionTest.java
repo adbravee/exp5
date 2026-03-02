@@ -24,7 +24,7 @@ public class AdditionTest {
         EdgeOptions options = new EdgeOptions();
 
         // Set the Edge browser binary path (msedge.exe, NOT msedgedriver.exe)
-        options.setBinary("C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe");
+        options.setBinary("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe");
 
         // Run headless on Jenkins to prevent crashes
         options.addArguments("--headless=new");
