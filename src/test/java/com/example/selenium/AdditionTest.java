@@ -1,4 +1,4 @@
-package com.example;
+package com.example.selenium;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,8 +17,18 @@ public class AdditionTest {
 
     @BeforeEach
     public void setUp() {
-        // Point to EdgeDriver location
+        // Specify EdgeDriver executable location if not in PATH
         System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
+
+        // Create EdgeOptions and specify Edge binary path
+        EdgeOptions options = new EdgeOptions();
+        options.setBinary("C:\\WebDriver\\msedgedriver.exe");
+
+        // Optional: run headless (useful for Jenkins)
+        // options.addArguments("--headless=new");
+        // options.addArguments("--disable-gpu");
+        // options.addArguments("--window-size=1920,1080");
+
         driver = new EdgeDriver(options);
     }
 
