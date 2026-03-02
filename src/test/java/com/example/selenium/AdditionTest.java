@@ -17,17 +17,19 @@ public class AdditionTest {
 
     @BeforeEach
     public void setUp() {
-        // Specify EdgeDriver executable location if not in PATH
+        // Set EdgeDriver executable path
         System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
 
-        // Create EdgeOptions and specify Edge binary path
+        // Create EdgeOptions
         EdgeOptions options = new EdgeOptions();
-        options.setBinary("C:\\WebDriver\\msedgedriver.exe");
 
-        // Optional: run headless (useful for Jenkins)
-        // options.addArguments("--headless=new");
-        // options.addArguments("--disable-gpu");
-        // options.addArguments("--window-size=1920,1080");
+        // Set the Edge browser binary path (msedge.exe, NOT msedgedriver.exe)
+        options.setBinary("C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe");
+
+        // Run headless on Jenkins to prevent crashes
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
 
         driver = new EdgeDriver(options);
     }
